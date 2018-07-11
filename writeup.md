@@ -21,7 +21,7 @@ The goals / steps of this project are the following:
 
 ---
 ### Writeup / README
-You're reading it! and here is a link to my [project code](https://github.com/udacity/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb)
+You're reading it! and here is a link to my [project code](https://github.com/KentonParton/traffic_sign_classifier.git/Traffic_Sign_Classifier.ipynb)
 
 ### Data Set Summary & Exploration
 #### 1. Basic Summary of Dataset
@@ -40,11 +40,12 @@ sign data set:
 
 **Visualization of dataset classes**
 
-![Image](/Users/kentonparton/Desktop/coding/medley/resources/H1uFruCG7_rJEpqjkXm.png)
+<img src="examples/img_7.png" width="520" alt="Combined Image" />
 
 
 **Bar Chart Visualization of Dataset**
-![Image](/Users/kentonparton/Desktop/coding/medley/resources/H1uFruCG7_ByHbojJ77.png)
+
+<img src="examples/img_8.png" width="520" alt="Combined Image" />
 
 
 ### Design and Model Architecture
@@ -59,29 +60,7 @@ Regarding normalization, images were normalized using Min-Max scaling between [0
 
 My final model consisted of the following layers:
 
-|:-------------------------:|:--------------------------------------------------------------------:| 
-| Layer         	           |     Description	        					            | 
-|:-------------------------:|:--------------------------------------------------------------------:| 
-| Input                      | 32x32x3 RGB image                                                  | 
-| Convolution 1x1   | Stride: 1x1, Padding: valid, Outputs: 32x32x32   |
-| RELU			   |										           |
-| Convolution 3x3   | Stride: 1x1, Padding: valid, Outputs: 30x30x32   |
-| RELU	                   |											   |
-| Convolution 3x3   | Stride: 1x1, Padding: valid, Outputs: 28x28x64   |
-| RELU			   |											   |
-| Max pooling	   | Stride: 2x2, Kernel: 1x1, outputs: 14x14x64 	   |
-| Dropout		   | Drop Rate: 50%							   |
-| Convolution 3x3   | Stride: 1x1, Padding: valid, Outputs: 12x12x128 |
-| RELU			   |											   |
-| Convolution 3x3   | Stride: 1x1, Padding: valid, Outputs: 10x10x256 |
-| RELU			   |											   |
-| Max pooling	   | Stride: 2x2, Kernel: 1x1, outputs: 5x5x64 	           |
-| Dropout		   | Drop Rate: 50%							   |
-| Flatten			   |               							                   |
-| Fully connected	   | Input: 256, Output: 84         					   |
-| Fully connected	   | Input: 84, Output: 43         					   |
-| Softmax		   |           									   |
-|:-------------------------:|:--------------------------------------------------------------------:| 
+<img src="examples/img_10.png" width="480" alt="Combined Image" />
 
 My model followed the notion that CNN's need to be deeper rather than wider. This was done by using a series of 3x3 convolutional layers which increased in depth with each proceeding convolution. This approach was based on the VGGNet architecture which demonstrated that reducing the filter size (3x3) and increasing the depth could yield a more accurate model.
 
@@ -108,19 +87,19 @@ My final model results were:
 Below are 5 traffic signs taken in France. 4 of the signs are identical to German traffic signs; however, one traffic sign is unseen by the network which is noted below.
 
 1. Yield
-![Image](/Users/kentonparton/Desktop/coding/medley/resources/r1Nsk89G7_BksDxtiM7.JPG)
+<img src="examples/img_0.JPG" width="100" alt="Combined Image" />
 
 2. No Entry
-![Image](/Users/kentonparton/Desktop/coding/medley/resources/r1Nsk89G7_rkkqgYiM7.JPG)
+<img src="examples/img_1.JPG" width="100" alt="Combined Image" />
 
 3. Priority Road
-![Image](/Users/kentonparton/Desktop/coding/medley/resources/r1Nsk89G7_By7iVtsfQ.JPG)
+<img src="examples/img_2.JPG" width="100" alt="Combined Image" />
 
 4. Dangerous Right Curve (French Road Sign, unseen by network)
-![Image](/Users/kentonparton/Desktop/coding/medley/resources/r1Nsk89G7_H1Mjgtsfm.JPG)
+<img src="examples/img_3.JPG" width="100" alt="Combined Image" />
 
 5. Speed Limit (70km/h)
-![Image](/Users/kentonparton/Desktop/coding/medley/resources/r1Nsk89G7_SJJ3eKjfX.JPG)
+<img src="examples/img_4.JPG" width="100" alt="Combined Image" />
 
 
 The model was able to correctly predict 5 out of the 5 signs of which, a portion of one sign had been cropped and another sign was unseen.
@@ -128,7 +107,8 @@ The model was able to correctly predict 5 out of the 5 signs of which, a portion
 #### 2. Model Predictions
 
 Here are the results of the prediction:
-![Image](/Users/kentonparton/Desktop/coding/medley/resources/r1Nsk89G7_rkdN8CQQX.png)
+
+<img src="examples/img_9.png" width="480" alt="Combined Image" />
 
 Images 1, 2, 3, and 5 were easily identified with an accuracy above 99%, presumably because the image are well lit and clear while some of the images in the training set were very dark. This made these images easier to predict.  While image 3 had an accuracy of 99.42%, a quarter of the sign was cropped to test if the model could classify the image correctly. While a portion of the sign was cropped, it is the only traffic sign with yellow. This may have resulted in a higher accuracy prediction. Out of the 5 images, image 4 had a much lower accuracy of 87.78% as it is a French traffic sign and isn't the same as the German equivalent. This demonstrates how the model is able to generalize when it receives similar data.
 
