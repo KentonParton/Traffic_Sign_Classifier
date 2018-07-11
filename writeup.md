@@ -40,12 +40,12 @@ sign data set:
 
 **Visualization of dataset classes**
 
-<img src="examples/img_7.png" width="520" alt="Combined Image" />
+<img src="examples/img_7.png" width="560" alt="Combined Image" />
 
 
 **Bar Chart Visualization of Dataset**
 
-<img src="examples/img_8.png" width="520" alt="Combined Image" />
+<img src="examples/img_8.png" width="420" alt="Combined Image" />
 
 
 ### Design and Model Architecture
